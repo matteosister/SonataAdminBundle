@@ -29,7 +29,7 @@ file that was distributed with this source code.
                 {% for root in roots %}
                     <li class="jstree-open">
                         <a href="">{{ root }}</a>
-                        {% include "SonataAdminBundle:CRUD:list_nested_set_branch.html.twig" with { 'branch': root } %}
+                        {% include "SonataAdminBundle:CRUD:list_tree_branch.html.twig" with { 'branch': root } %}
                     </li>
                 {% endfor %}
             </ul>

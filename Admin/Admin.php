@@ -171,6 +171,13 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
     );
 
     /**
+     * Define if the class related to the admin class is a tree
+     *
+     * @var boolean
+     */
+    protected $isTree = false;
+
+    /**
      * The code related to the admin
      *
      * @var string
@@ -973,6 +980,10 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
      */
     public function getListTemplate()
     {
+        if ($this->isTree) {
+            return $this->getTemplate('tree');
+        }
+
         return $this->getTemplate('list');
     }
 

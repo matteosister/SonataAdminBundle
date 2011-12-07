@@ -3,7 +3,7 @@
         <li class="jstree-open">
             <a href="{{ admin.generateObjectUrl('edit', node) }}">{{ node }}</a>
             {% if node.children|length > 0 %}
-                {% include "SonataAdminBundle:CRUD:list_nested_set_branch.html.twig" with { 'branch': node } %}
+                {% include "SonataAdminBundle:CRUD:list_tree_branch.html.twig" with { 'branch': node } %}
             {% endif %}
         </li>
     {% endfor %}
