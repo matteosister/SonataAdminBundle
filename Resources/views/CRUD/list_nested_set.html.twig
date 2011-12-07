@@ -27,7 +27,7 @@ file that was distributed with this source code.
         <section class="jstree">
             <ul>
                 {% for root in roots %}
-                    <li>
+                    <li class="jstree-open">
                         <a href="">{{ root }}</a>
                         {% include "SonataAdminBundle:CRUD:list_nested_set_branch.html.twig" with { 'branch': root } %}
                     </li>
