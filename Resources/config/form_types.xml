@@ -43,6 +43,10 @@
             <argument type="service" id="translator" />
         </service>
 
+        <service id="sonata.admin.form.type.tree" class="Sonata\AdminBundle\Form\Type\TreeType">
+            <tag name="form.type" alias="sonata_type_tree" />
+        </service>
+
         <!-- Form Extension -->
         <service id="sonata.admin.form.extension.field" class="Sonata\AdminBundle\Form\Extension\Field\Type\FormTypeFieldExtension">
             <tag name="form.type_extension" alias="field" />
