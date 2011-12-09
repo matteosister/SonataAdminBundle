@@ -13,6 +13,7 @@ file that was distributed with this source code.
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/sonataadmin/jstree/jquery.cookie.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bundles/sonataadmin/jstree/jquery.jstree.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bundles/sonataadmin/jstree/jstree_trigger.js') }}" type="text/javascript"></script>
 {% endblock %}
@@ -27,7 +28,7 @@ file that was distributed with this source code.
         <section class="jstree">
             <ul>
                 {% for root in roots %}
-                    <li class="jstree-open">
+                    <li class="jstree-open" id="{{ root.id }}">
                         <a href="">{{ root }}</a>
                         {% include "SonataAdminBundle:CRUD:list_tree_branch.html.twig" with { 'branch': root } %}
                     </li>

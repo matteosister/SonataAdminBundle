@@ -12,6 +12,6 @@ $(document).ready( function() {
         themes: {
             theme: 'sonata'
         },
-        plugins: ['themes', 'html_data']
+        plugins: ['themes', 'html_data', 'cookies']
     });
 });
