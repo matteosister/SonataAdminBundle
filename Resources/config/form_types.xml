@@ -43,7 +43,13 @@
             <argument type="service" id="translator" />
         </service>
 
-        <service id="sonata.admin.form.type.tree" class="Sonata\AdminBundle\Form\Type\TreeType">
+        <service id="sonata.admin.form.type.datetime_range" class="Sonata\AdminBundle\Form\Type\DateTimeRangeType">
+            <tag name="form.type" alias="sonata_type_datetime_range" />
+
+            <argument type="service" id="translator" />
+        </service>
+
+		<service id="sonata.admin.form.type.tree" class="Sonata\AdminBundle\Form\Type\TreeType">
             <tag name="form.type" alias="sonata_type_tree" />
         </service>
 

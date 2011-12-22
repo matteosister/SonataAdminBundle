@@ -27,7 +27,7 @@ file that was distributed with this source code.
     {% set batchactions = admin.batchactions %}
     {% if admin.datagrid.results|length > 0 %}
         <form action="{{ admin.generateUrl('batch', admin.filterParameters) }}" method="POST" >
-            <table class="zebra-striped">
+            <table class="zebra-striped bordered-table">
                 {% block table_header %}
                     <thead>
                         <tr class="sonata-ba-list-field-header">
@@ -140,7 +140,7 @@ file that was distributed with this source code.
 
 {% block list_filters %}
     {% if admin.datagrid.filters %}
-        <form class="sonata-filter-form {{ admin.isChild and 1 == admin.datagrid.filters|length ? 'hide' : '' }}" action="{{ admin.generateUrl('list') }}" method="GET">
+        <form class="sonata-filter-form form-stacked {{ admin.isChild and 1 == admin.datagrid.filters|length ? 'hide' : '' }}" action="{{ admin.generateUrl('list') }}" method="GET">
             <fieldset class="filter_legend">
                 <legend class="filter_legend">{% trans from 'SonataAdminBundle' %}label_filters{% endtrans %}</legend>
 
@@ -148,7 +148,7 @@ file that was distributed with this source code.
                     <table>
                         <tr>
                             <td>
-                                <table>
+                                <table class="bordered-table">
                                     {% for filter in admin.datagrid.filters %}
                                         <tr id="filter_{{ filter.name }}_row">
                                             <td class="filter-title">{{ admin.trans(filter.label) }}</td>
