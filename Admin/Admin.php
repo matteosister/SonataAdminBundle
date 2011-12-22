@@ -992,12 +992,12 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
      */
     public function getListTemplate()
     {
-        if ($this->isTree()) {
+        if ($this->getTree()) {
             if (!is_a($this->getNewInstance(), 'Sonata\AdminBundle\Tree\TreeInterface')) {
                 throw new \RuntimeException('The model class must implement TreeInterface to be represented as a tree');
             }
         }
-        if ($this->isTree()) {
+        if ($this->getTree()) {
             return $this->getTemplate('tree');
         }
 
@@ -1681,11 +1681,17 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
     }
 
     /**
-     * Returns true id the class related to this admin implements the TreeInterface interface
-     *
-     * @return bool
+     * @param boolean $tree true if the class is a tree
      */
-    public function isTree()
+    public function setTree($tree)
+    {
+        $this->tree = $tree;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getTree()
     {
         return $this->tree;
     }
