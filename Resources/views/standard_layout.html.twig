@@ -71,36 +71,33 @@ file that was distributed with this source code.
     </head>
     <body class="sonata-bc {% if _side_menu is empty %}sonata-ba-no-side-menu{% endif %}">
         {# initialize block value #}
-
-        <div class="topbar" data-dropdown="dropdown" >
-            <div class="topbar">
-                <div class="topbar-inner">
-                    <div class="container-fluid">
-                        {% if admin_pool is defined %}
-                            {% block logo %}
-                                <a href="{{ url('sonata_admin_dashboard') }}" class="brand">
-                                    <img src="{{ asset(admin_pool.titlelogo) }}"  alt="{{ admin_pool.title }}" />
-                                    {{ admin_pool.title }}
-                                </a>
-                            {% endblock %}
-                            {% if app.user %}
-                                <ul class="nav">
-                                    {% for group in admin_pool.dashboardgroups %}
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle">{{ group.label|trans({}, 'SonataAdminBundle') }}</a>
-                                            <ul class="dropdown-menu">
-                                                {% for admin in group.items %}
-                                                    <li><a href="{{ admin.generateUrl('list')}}">{{ admin.label|trans({}, admin.translationdomain) }}</a></li>
-                                                {% endfor %}
-                                            </ul>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-
-                            <p class="pull-right">{% include admin_pool.getTemplate('user_block') %}</p>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    {% if admin_pool is defined %}
+                        {% block logo %}
+                            <a href="{{ url('sonata_admin_dashboard') }}" class="brand">
+                                <img src="{{ asset(admin_pool.titlelogo) }}"  alt="{{ admin_pool.title }}" />
+                                {{ admin_pool.title }}
+                            </a>
+                        {% endblock %}
+                        {% if app.user %}
+                            <ul class="nav">
+                                {% for group in admin_pool.dashboardgroups %}
+                                    <li class="dropdown">
+                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ group.label|trans({}, 'SonataAdminBundle') }}</a>
+                                        <ul class="dropdown-menu">
+                                            {% for admin in group.items %}
+                                                <li><a href="{{ admin.generateUrl('list')}}">{{ admin.label|trans({}, admin.translationdomain) }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         {% endif %}
-                    </div>
+
+                        <p class="user pull-right">{% include admin_pool.getTemplate('user_block') %}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

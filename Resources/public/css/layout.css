@@ -2,11 +2,16 @@ body.sonata-bc {
     padding-top: 60px;
 }
 
-.sonata-bc .topbar a.brand {
+.sonata-bc .navbar a.brand {
     margin: 0px;
     padding: 0px;
     line-height: 40px;
     padding-right: 20px;
+}
+
+.sonata-bc .navbar p.user {
+    padding: 10px 10px 11px;
+    margin: 0;
 }
 
 .sonata-bc a.brand img {
