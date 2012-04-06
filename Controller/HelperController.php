@@ -172,6 +172,12 @@ class HelperController
             }
         }
 
+        if(is_a($object, 'Application\Sonata\MediaBundle\Entity\Media') && array_key_exists('media', $this->twig->getTags())) {
+            $description = $this->twig->render('VivacomCargoBundle:Admin:CRUD/image_preview.html.twig', array(
+                'object' => $object
+            ));
+        }
+
         $description = sprintf('<a href="%s" target="new">%s</a>', $admin->generateUrl('edit', array('id' => $objectId)), $description);
 
         return new Response($description);
